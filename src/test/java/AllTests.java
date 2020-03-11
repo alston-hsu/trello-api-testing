@@ -9,7 +9,7 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 
 public class AllTests extends TrelloApiConfig {
 
-    @Test
+    @Test (groups = { "functest" })
     public void createBoard() throws IOException {
         String newBoardBody = "{}";
 
@@ -60,7 +60,7 @@ public class AllTests extends TrelloApiConfig {
                 .body("name[0]", equalTo("To Do"));
     }
 
-    @Test
+    @Test (groups = { "functest" })
     public void updateBoard() throws IOException {
         given()
                 .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
@@ -74,7 +74,7 @@ public class AllTests extends TrelloApiConfig {
     }
 
     //rerun in 60 min
-    @Test
+    @Test (groups = { "functest" })
     public void updateBoardByAddingEmail() throws IOException {
         given()
                 .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
@@ -87,7 +87,7 @@ public class AllTests extends TrelloApiConfig {
                 .body("members.fullName", equalTo("test123"));
     }
 
-    @Test
+    @Test (groups = { "functest" })
     public void createLabelForBoard() throws IOException {
         String updatedBoardBody = "{}";
 
@@ -105,7 +105,7 @@ public class AllTests extends TrelloApiConfig {
                 .body("color", equalTo("purple"));
     }
 
-    @Test
+    @Test (groups = { "functest" })
     public void createListForBoard() throws IOException {
         String updatedBoardBody = "{}";
 
@@ -121,7 +121,7 @@ public class AllTests extends TrelloApiConfig {
                 .body("name", equalTo("Posting list to board"));
     }
 
-    @Test
+    @Test (groups = { "functest" })
     public void deleteBoard() throws IOException {
         given()
                 .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
@@ -133,7 +133,7 @@ public class AllTests extends TrelloApiConfig {
                 .body("_value", equalTo(null));
     }
 
-    @Test
+    @Test (groups = { "functest" })
     public void createLabel() throws IOException {
         String newLabelBody = "{}";
 
@@ -163,7 +163,7 @@ public class AllTests extends TrelloApiConfig {
                 .body("name", equalTo("Test Label"));
     }
 
-    @Test
+    @Test (groups = { "functest" })
     public void updateLabel() throws IOException {
         given()
                 .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
@@ -178,7 +178,7 @@ public class AllTests extends TrelloApiConfig {
                 .body("color", equalTo("red"));
     }
 
-    @Test
+    @Test (groups = { "functest" })
     public void deleteLabel() throws IOException {
         given()
                 .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
@@ -189,7 +189,7 @@ public class AllTests extends TrelloApiConfig {
         .then();
     }
 
-    @Test
+    @Test (groups = { "functest" })
     public void createList() throws IOException {
         String newListBody = "{}";
 
@@ -217,7 +217,7 @@ public class AllTests extends TrelloApiConfig {
                 .body("name", equalTo("Test List"));
     }
 
-    @Test
+    @Test (groups = { "functest" })
     public void updateList() throws IOException {
         given()
                 .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
@@ -230,7 +230,7 @@ public class AllTests extends TrelloApiConfig {
                 .body("name", equalTo("Updated Test List"));
     }
 
-    @Test
+    @Test (groups = { "functest" })
     public void createCard() throws IOException {
         String newCardBody = "{}";
 
@@ -246,7 +246,7 @@ public class AllTests extends TrelloApiConfig {
                 .body(matchesJsonSchemaInClasspath("CardJsonSchema.json"));
     }
 
-    @Test
+    @Test (groups = { "functest" })
     public void createChecklistForCard() throws IOException {
         String newChecklistForCardBody = "{}";
 
@@ -262,7 +262,7 @@ public class AllTests extends TrelloApiConfig {
                 .body("name", equalTo("Adding checklist for card"));
     }
 
-    @Test
+    @Test (groups = { "functest" })
     public void createLabelForCard() throws IOException {
         String newChecklistForCardBody = "{}";
 
@@ -328,7 +328,7 @@ public class AllTests extends TrelloApiConfig {
                 .body("name", equalTo("Updated Test List"));
     }
 
-    @Test
+    @Test (groups = { "functest" })
     public void updateCard() throws IOException {
         given()
                 .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
@@ -341,7 +341,7 @@ public class AllTests extends TrelloApiConfig {
                 .body("name", equalTo("Updated Card"));
     }
 
-    @Test
+    @Test (groups = { "functest" })
     public void deleteCard() throws IOException {
         given()
                 .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
@@ -352,7 +352,7 @@ public class AllTests extends TrelloApiConfig {
         .then();
     }
 
-    @Test
+    @Test (groups = { "functest" })
     public void createChecklist() throws IOException {
         String newChecklistBody = "{}";
 
@@ -404,7 +404,7 @@ public class AllTests extends TrelloApiConfig {
                 .body("name", equalTo("Updated Card"));
     }
 
-    @Test
+    @Test (groups = { "functest" })
     public void updateChecklist() throws IOException {
         given()
                 .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
@@ -417,7 +417,7 @@ public class AllTests extends TrelloApiConfig {
                 .body("name", equalTo("Updated Checklist"));
     }
 
-    @Test
+    @Test (groups = { "functest" })
     public void deleteChecklist() throws IOException {
         given()
                 .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
@@ -428,7 +428,7 @@ public class AllTests extends TrelloApiConfig {
         .then();
     }
 
-    @Test
+    @Test (groups = { "functest" })
     public void markNotificationsAsRead() throws IOException {
         String notificationAsReadBody = "{}";
 
