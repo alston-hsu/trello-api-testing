@@ -84,7 +84,9 @@ public class AllTests extends TrelloApiConfig {
         .when()
                 .put("/boards/{id}/members")
         .then()
-                .body("members.fullName", equalTo("John Doe, test, test123"));
+                .body("members.fullName[0]", equalTo("John Doe"))
+                .body("members.fullName[1]", equalTo("test"))
+                .body("members.fullName[2]", equalTo("test123"));
     }
 
     @Test (groups = { "functest" })
@@ -401,7 +403,7 @@ public class AllTests extends TrelloApiConfig {
         .when()
                 .get("/checklists/{id}/cards")
         .then()
-                .body("name", equalTo("[Updated Card]"));
+                .body("name[0]", equalTo("Updated Card"));
     }
 
     @Test (groups = { "functest" })
