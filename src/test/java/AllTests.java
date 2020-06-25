@@ -15,8 +15,8 @@ public class AllTests extends TrelloApiConfig {
 
         given()
                 .queryParam("name", "Test Board")
-                .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
-                .queryParam("token", TrelloApiConfig.getPropertyValue("token"))
+                .queryParam("key", System.getenv("api_key"))
+                .queryParam("token", System.getenv("token"))
                 .body(newBoardBody)
         .when()
                 .post("/boards/")
@@ -39,8 +39,8 @@ public class AllTests extends TrelloApiConfig {
     @Test
     public void getBoardLabels() throws IOException {
         given()
-                .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
-                .queryParam("token", TrelloApiConfig.getPropertyValue("token"))
+                .queryParam("key", System.getenv("api_key"))
+                .queryParam("token", System.getenv("token"))
                 .pathParam("id", "5e69208a46b821054e0ff39f")
         .when()
                 .get("/boards/{id}/labels")
@@ -51,8 +51,8 @@ public class AllTests extends TrelloApiConfig {
     @Test
     public void getBoardLists() throws IOException {
         given()
-                .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
-                .queryParam("token", TrelloApiConfig.getPropertyValue("token"))
+                .queryParam("key", System.getenv("api_key"))
+                .queryParam("token", System.getenv("token"))
                 .pathParam("id", "5e69208a46b821054e0ff39f")
         .when()
                 .get("/boards/{id}/lists")
@@ -63,8 +63,8 @@ public class AllTests extends TrelloApiConfig {
     @Test (groups = { "functest" })
     public void updateBoard() throws IOException {
         given()
-                .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
-                .queryParam("token", TrelloApiConfig.getPropertyValue("token"))
+                .queryParam("key", System.getenv("api_key"))
+                .queryParam("token", System.getenv("token"))
                 .queryParam("name", "Updated Test Board")
                 .pathParam("id", "5e69208a46b821054e0ff39f")
         .when()
@@ -77,8 +77,8 @@ public class AllTests extends TrelloApiConfig {
     @Test (groups = { "functest" })
     public void updateBoardByAddingEmail() throws IOException {
         given()
-                .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
-                .queryParam("token", TrelloApiConfig.getPropertyValue("token"))
+                .queryParam("key", System.getenv("api_key"))
+                .queryParam("token", System.getenv("token"))
                 .pathParam("id", "5e69208a46b821054e0ff39f")
                 .queryParam("email", "test123@test.com")
         .when()
@@ -94,8 +94,8 @@ public class AllTests extends TrelloApiConfig {
         String updatedBoardBody = "{}";
 
         given()
-                .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
-                .queryParam("token", TrelloApiConfig.getPropertyValue("token"))
+                .queryParam("key", System.getenv("api_key"))
+                .queryParam("token", System.getenv("token"))
                 .pathParam("id", "5e69208a46b821054e0ff39f")
                 .queryParam("name", "Added label")
                 .queryParam("color", "purple")
@@ -112,8 +112,8 @@ public class AllTests extends TrelloApiConfig {
         String updatedBoardBody = "{}";
 
         given()
-                .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
-                .queryParam("token", TrelloApiConfig.getPropertyValue("token"))
+                .queryParam("key", System.getenv("api_key"))
+                .queryParam("token", System.getenv("token"))
                 .pathParam("id", "5e69208a46b821054e0ff39f")
                 .queryParam("name", "Posting list to board")
                 .body(updatedBoardBody)
@@ -140,8 +140,8 @@ public class AllTests extends TrelloApiConfig {
         String newLabelBody = "{}";
 
         given()
-                .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
-                .queryParam("token", TrelloApiConfig.getPropertyValue("token"))
+                .queryParam("key", System.getenv("api_key"))
+                .queryParam("token", System.getenv("token"))
                 .queryParam("name", "Test Label")
                 .queryParam("color", "green")
                 .queryParam("idBoard", "5e69208a46b821054e0ff39f")
@@ -156,8 +156,8 @@ public class AllTests extends TrelloApiConfig {
     @Test
     public void getLabel() throws IOException {
         given()
-                .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
-                .queryParam("token", TrelloApiConfig.getPropertyValue("token"))
+                .queryParam("key", System.getenv("api_key"))
+                .queryParam("token", System.getenv("token"))
                 .pathParam("id", "5e692a805a3e6e89eca8212e")
         .when()
                 .get("/labels/{id}")
@@ -168,8 +168,8 @@ public class AllTests extends TrelloApiConfig {
     @Test (groups = { "functest" })
     public void updateLabel() throws IOException {
         given()
-                .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
-                .queryParam("token", TrelloApiConfig.getPropertyValue("token"))
+                .queryParam("key", System.getenv("api_key"))
+                .queryParam("token", System.getenv("token"))
                 .pathParam("id", "5e692a805a3e6e89eca8212e")
                 .queryParam("name", "Updated Label")
                 .queryParam("color", "red")
@@ -196,8 +196,8 @@ public class AllTests extends TrelloApiConfig {
         String newListBody = "{}";
 
         given()
-                .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
-                .queryParam("token", TrelloApiConfig.getPropertyValue("token"))
+                .queryParam("key", System.getenv("api_key"))
+                .queryParam("token", System.getenv("token"))
                 .queryParam("name", "Test List")
                 .queryParam("idBoard", "5e69208a46b821054e0ff39f")
                 .body(newListBody)
@@ -210,8 +210,8 @@ public class AllTests extends TrelloApiConfig {
     @Test
     public void getList() throws IOException {
         given()
-                .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
-                .queryParam("token", TrelloApiConfig.getPropertyValue("token"))
+                .queryParam("key", System.getenv("api_key"))
+                .queryParam("token", System.getenv("token"))
                 .pathParam("id", "5e692cbde36e6261ae3a5526")
         .when()
                 .get("/lists/{id}")
@@ -222,8 +222,8 @@ public class AllTests extends TrelloApiConfig {
     @Test (groups = { "functest" })
     public void updateList() throws IOException {
         given()
-                .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
-                .queryParam("token", TrelloApiConfig.getPropertyValue("token"))
+                .queryParam("key", System.getenv("api_key"))
+                .queryParam("token", System.getenv("token"))
                 .pathParam("id", "5e692cbde36e6261ae3a5526")
                 .queryParam("name", "Updated Test List")
         .when()
@@ -237,8 +237,8 @@ public class AllTests extends TrelloApiConfig {
         String newCardBody = "{}";
 
         given()
-                .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
-                .queryParam("token", TrelloApiConfig.getPropertyValue("token"))
+                .queryParam("key", System.getenv("api_key"))
+                .queryParam("token", System.getenv("token"))
                 .queryParam("name", "Test Card")
                 .queryParam("idList", "5e692cbde36e6261ae3a5526")
                 .body(newCardBody)
@@ -253,8 +253,8 @@ public class AllTests extends TrelloApiConfig {
         String newChecklistForCardBody = "{}";
 
         given()
-                .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
-                .queryParam("token", TrelloApiConfig.getPropertyValue("token"))
+                .queryParam("key", System.getenv("api_key"))
+                .queryParam("token", System.getenv("token"))
                 .pathParam("id", "5e692f309835dc0f39e42aca")
                 .queryParam("name", "Adding checklist for card")
                 .body(newChecklistForCardBody)
@@ -285,8 +285,8 @@ public class AllTests extends TrelloApiConfig {
     @Test
     public void getCard() throws IOException {
         given()
-                .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
-                .queryParam("token", TrelloApiConfig.getPropertyValue("token"))
+                .queryParam("key", System.getenv("api_key"))
+                .queryParam("token", System.getenv("token"))
                 .pathParam("id", "5e692f309835dc0f39e42aca")
         .when()
                 .get("/cards/{id}")
@@ -297,8 +297,8 @@ public class AllTests extends TrelloApiConfig {
     @Test
     public void getBoardOfCard() throws IOException {
         given()
-                .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
-                .queryParam("token", TrelloApiConfig.getPropertyValue("token"))
+                .queryParam("key", System.getenv("api_key"))
+                .queryParam("token", System.getenv("token"))
                 .pathParam("id", "5e692f309835dc0f39e42aca")
         .when()
                 .get("/cards/{id}/board")
@@ -321,8 +321,8 @@ public class AllTests extends TrelloApiConfig {
     @Test
     public void getListOfCard() throws IOException {
         given()
-                .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
-                .queryParam("token", TrelloApiConfig.getPropertyValue("token"))
+                .queryParam("key", System.getenv("api_key"))
+                .queryParam("token", System.getenv("token"))
                 .pathParam("id", "5e692f309835dc0f39e42aca")
         .when()
                 .get("/cards/{id}/list")
@@ -333,8 +333,8 @@ public class AllTests extends TrelloApiConfig {
     @Test (groups = { "functest" })
     public void updateCard() throws IOException {
         given()
-                .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
-                .queryParam("token", TrelloApiConfig.getPropertyValue("token"))
+                .queryParam("key", System.getenv("api_key"))
+                .queryParam("token", System.getenv("token"))
                 .pathParam("id", "5e692f309835dc0f39e42aca")
                 .queryParam("name", "Updated Card")
         .when()
@@ -359,8 +359,8 @@ public class AllTests extends TrelloApiConfig {
         String newChecklistBody = "{}";
 
         given()
-                .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
-                .queryParam("token", TrelloApiConfig.getPropertyValue("token"))
+                .queryParam("key", System.getenv("api_key"))
+                .queryParam("token", System.getenv("token"))
                 .queryParam("idCard", "5e692f309835dc0f39e42aca")
                 .queryParam("name", "Test Checklist")
                 .body(newChecklistBody)
@@ -373,8 +373,8 @@ public class AllTests extends TrelloApiConfig {
     @Test
     public void getChecklist() throws IOException {
         given()
-                .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
-                .queryParam("token", TrelloApiConfig.getPropertyValue("token"))
+                .queryParam("key", System.getenv("api_key"))
+                .queryParam("token", System.getenv("token"))
                 .pathParam("id", "5e6932695ad5087e99608837")
         .when()
                 .get("/checklists/{id}")
@@ -385,8 +385,8 @@ public class AllTests extends TrelloApiConfig {
     @Test
     public void getBoardOfChecklist() throws IOException {
         given()
-                .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
-                .queryParam("token", TrelloApiConfig.getPropertyValue("token"))
+                .queryParam("key", System.getenv("api_key"))
+                .queryParam("token", System.getenv("token"))
                 .pathParam("id", "5e6932695ad5087e99608837")
         .when()
                 .get("/checklists/{id}/board")
@@ -397,8 +397,8 @@ public class AllTests extends TrelloApiConfig {
     @Test
     public void getCardsOfChecklist() throws IOException {
         given()
-                .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
-                .queryParam("token", TrelloApiConfig.getPropertyValue("token"))
+                .queryParam("key", System.getenv("api_key"))
+                .queryParam("token", System.getenv("token"))
                 .pathParam("id", "5e6932695ad5087e99608837")
         .when()
                 .get("/checklists/{id}/cards")
@@ -409,8 +409,8 @@ public class AllTests extends TrelloApiConfig {
     @Test (groups = { "functest" })
     public void updateChecklist() throws IOException {
         given()
-                .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
-                .queryParam("token", TrelloApiConfig.getPropertyValue("token"))
+                .queryParam("key", System.getenv("api_key"))
+                .queryParam("token", System.getenv("token"))
                 .pathParam("id", "5e6932695ad5087e99608837")
                 .queryParam("name", "Updated Checklist")
         .when()
@@ -435,8 +435,8 @@ public class AllTests extends TrelloApiConfig {
         String notificationAsReadBody = "{}";
 
         given()
-                .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
-                .queryParam("token", TrelloApiConfig.getPropertyValue("token"))
+                .queryParam("key", System.getenv("api_key"))
+                .queryParam("token", System.getenv("token"))
                 .body(notificationAsReadBody)
         .when()
                 .post("/notifications/all/read")

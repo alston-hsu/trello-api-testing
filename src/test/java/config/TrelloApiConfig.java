@@ -19,11 +19,11 @@ public class TrelloApiConfig {
     RequestSpecification trello_requestSpec;
     ResponseSpecification trello_responseSpec;
 
-    public static String getPropertyValue(String propertyKey) throws IOException {
-        InputStream file = new FileInputStream(".travis.yml");
+    /*public static String getPropertyValue(String propertyKey) throws IOException {
+        InputStream file = new FileInputStream(".secret/creds.properties");
         prop.load(file);
         return prop.getProperty(propertyKey);
-    }
+    }*/
 
     @BeforeClass
     public void setup() {
