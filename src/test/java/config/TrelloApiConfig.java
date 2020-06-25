@@ -14,11 +14,11 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class TrelloApiConfig {
-
-    public static Properties prop = new Properties();
+    
     RequestSpecification trello_requestSpec;
     ResponseSpecification trello_responseSpec;
 
+    //public static Properties prop = new Properties();
     /*public static String getPropertyValue(String propertyKey) throws IOException {
         InputStream file = new FileInputStream(".secret/creds.properties");
         prop.load(file);
