@@ -27,8 +27,8 @@ public class AllTests extends TrelloApiConfig {
     @Test
     public void getBoard() throws IOException {
         given()
-                .queryParam("key", TrelloApiConfig.getPropertyValue("api-key"))
-                .queryParam("token", TrelloApiConfig.getPropertyValue("token"))
+                .queryParam("key", System.getenv("api_key"))
+                .queryParam("token", System.getenv("token"))
                 .pathParam("id", "5e69208a46b821054e0ff39f")
         .when()
                 .get("/boards/{id}")
